@@ -1,14 +1,14 @@
-TalentCore Workforce Analytics
+**TalentCore Workforce Analytics**
 
 A five-page Power BI dashboard and CRISP-DM analysis of a company's workforce: headcount, performance, attrition, and pay and diversity. I cleaned 1,000 messy HR records down to 243 employees, built a star-schema data model with DAX measures, and turned the findings into recommendations.
 
 Executive Summary page
 
-Business problem
+**Business problem**
 
 TalentCore's HR data sits in one spreadsheet with no entry rules, so leaders cannot see where people leave or whether pay is fair. The company has six offices across Kenya, Uganda, Tanzania and Rwanda.
 
-Questions answered
+**Questions answered**
 
 Where is the workforce concentrated, and how has hiring moved?
 Which departments differ on performance, training and overtime?
@@ -18,7 +18,7 @@ Tools
 
 Power BI · Power Query · DAX · Excel · CRISP-DM
 
-Data
+**Data**
 
 A course HR extract of 1,000 rows and 16 columns. The raw data is not included in this repository.
 
@@ -32,7 +32,7 @@ Data cleaning (Power Query)
 
 Every step was logged so it can be traced and repeated. Missing or invalid values were left blank, never replaced with zero, so averages ignore them.
 
-Column	Problem found	Fix	Result
+**Column	Problem found	Fix	Result**
 Rows	753 rows with no Employee ID	Filtered out	247 rows
 Employee ID	Stray spaces, mixed case, ".0" suffix, missing hyphen, 4 duplicates	Trim, upper-case, repair; keep earliest hire date	243 rows
 Department	18 spelling variants	Mapped to 6 departments	6 values
@@ -52,7 +52,7 @@ Columns added: Exit Type, Tenure (Years), Age Group and Tenure Group.
 
 Decisions: keep the earliest record for duplicate IDs; blank impossible ages; keep leavers with no exit date as "Left" but exclude them from tenure.
 
-Data model
+**Data model**
 
 A star schema: Employees (243 rows) is the fact table, joined one-to-many to five dimensions: Date, Department, Office, Education and AgeGroup. The Hire Date relationship is active. The Exit Date relationship is inactive and switched on inside one measure with USERELATIONSHIP, so exits can be trended without a second date table.
 
@@ -92,7 +92,7 @@ The overall gender pay gap is about 1%, but it is larger inside some departments
 
 Pay by Gender and Department
 
-Key findings
+**Key findings**
 Attrition is 15.6% (38 of 243), highest in Finance (21.6%) and Customer Support (20.4%), and lowest in Operations (8.1%).
 Risk sits at two points: staff with 1 to 3 years of tenure (16.2%) and staff aged 50 and over (26.5%).
 Exits are rising: 11 employees left in 2024, against 3 to 6 a year since 2020.
@@ -100,11 +100,11 @@ Exit reasons are missing: only 3 of 38 leavers have a recorded reason, so we kno
 Pay is near-equal overall (about 1% gap), but men earn roughly 7 to 9% more in Engineering, Operations and HR, while women earn slightly more in Finance, Sales and Customer Support.
 Pay does not rise with education: Master's holders have the lowest average (about KES 139,000).
 Operations works the most overtime but has the lowest attrition, so the data does not show overtime driving people out.
-Recommendations
+**Recommendations**
 
 These are proposed actions. The targets are my suggestions, anchored to the baselines in the data, for management to confirm.
 
-#	Recommendation	Evidence	Proposed target
+**#	Recommendation	Evidence	Proposed target**
 1	Record a reason for every exit with a structured exit interview	Only 3 of 38 leavers have one	100% of leavers with a reason
 2	Focus retention on Finance and Customer Support: review pay and workload	Attrition 21.6% and 20.4%	Under 15% in both within 12 months
 3	Early-career retention programme; succession planning for staff aged 50+	Attrition 16.2% at 1 to 3 years, 26.5% at 50+	1 to 3 year attrition under 12%
@@ -112,7 +112,7 @@ These are proposed actions. The targets are my suggestions, anchored to the base
 5	Rebalance overtime and training in Operations	64.9% overtime, 35.1 training hours	Overtime under 55%, 40 training hours
 6	Investigate the rise in exits in 2024	11 exits, up from 3 to 6 a year	Findings presented within 60 days
 
-Limitations
+**Limitations**
 Only 243 employees, so small groups swing percentages.
 3 leavers have no exit date and 12 have no usable tenure. One exit is dated 2017, which looks like an entry error.
 8 salaries, 5 ratings and 10 ages are missing and were left blank.
@@ -123,6 +123,6 @@ Repository contents
 images/: dashboard screenshots
 docs/: CRISP-DM report and presentation (PDF)
 
-Author
+**Author**
 
 Brian Njoroge
