@@ -14,7 +14,8 @@ Where is the workforce concentrated, and how has hiring moved?
 Which departments differ on performance, training and overtime?
 Where and when do people leave, and which groups are at highest risk?
 Is pay fair across gender, department and education?
-Tools
+
+**Tools**
 
 Power BI · Power Query · DAX · Excel · CRISP-DM
 
@@ -22,7 +23,7 @@ Power BI · Power Query · DAX · Excel · CRISP-DM
 
 A course HR extract of 1,000 rows and 16 columns. The raw data is not included in this repository.
 
-Item	Value
+**Item	Value**
 Raw rows	1,000
 Rows holding only a hire date	753
 Rows with employee data	247
@@ -56,7 +57,7 @@ Decisions: keep the earliest record for duplicate IDs; blank impossible ages; ke
 
 A star schema: Employees (243 rows) is the fact table, joined one-to-many to five dimensions: Date, Department, Office, Education and AgeGroup. The Hire Date relationship is active. The Exit Date relationship is inactive and switched on inside one measure with USERELATIONSHIP, so exits can be trended without a second date table.
 
-Star schema
+**Star schema**
 
 Key measures: Total Headcount, Active Headcount, Employees Left, Attrition Rate, Average Monthly Salary, Average Tenure, Average Training Hours, Average Performance Rating, Overtime Rate, Female Share, Gender Pay Gap, Exits by Exit Date.
 
@@ -66,31 +67,23 @@ Exits by Exit Date =
 CALCULATE([Employees Left], USERELATIONSHIP(Date[Date], Employees[Exit Date]))
 Dashboard
 
-Five pages: Executive Summary, Workforce Overview, Departmental Performance, Attrition Analysis, and Compensation and Diversity.
+**Five pages: Executive Summary, Workforce Overview, Departmental Performance, Attrition Analysis, and Compensation and Diversity.**
 
-Workforce overview
+**Workforce overview**
 
 243 employees: 205 active and 38 who have left. Average age is 39.7 and average tenure 3.8 years. Customer Support is the largest department, with 54 people (22%).
 
-Employees by Department
-
-Departmental performance
+**Departmental performance**
 
 Customer Support rates lowest (2.47) and Sales highest (3.11), a 0.64-point gap. Operations has the least training (35.1 hours) and joint-highest overtime (64.9%).
 
-Performance by Department
-
-Attrition analysis
+**Attrition analysis**
 
 Attrition is 15.6%. It is highest in Finance (21.6%) and Customer Support (20.4%) and lowest in Operations (8.1%).
 
-Attrition by Department
-
-Compensation and diversity
+**Compensation and diversity**
 
 The overall gender pay gap is about 1%, but it is larger inside some departments.
-
-Pay by Gender and Department
 
 **Key findings**
 Attrition is 15.6% (38 of 243), highest in Finance (21.6%) and Customer Support (20.4%), and lowest in Operations (8.1%).
@@ -119,7 +112,7 @@ Only 243 employees, so small groups swing percentages.
 2025 data ends mid-year, so 2025 hires and exits are partial.
 The analysis shows association, not cause.
 
-Repository contents
+**Repository contents**
 images/: dashboard screenshots
 docs/: CRISP-DM report and presentation (PDF)
 
